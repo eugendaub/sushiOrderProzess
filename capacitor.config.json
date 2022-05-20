@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "orderProzessExperiment",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

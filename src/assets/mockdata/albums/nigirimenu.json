@@ -1,0 +1,13 @@
+{
+  "artist": "Nigiri Menue",
+  "backgroundColor": "#0d2157",
+  "image": "nigirimenue",
+  "released": "17.60 €",
+  "title": "Nigiri Menue lecker",
+  "tracks": [
+    { "title": "8x California Rolle mit Lachs", "seconds": 251 },
+    { "title": "Avocado, Gurke", "seconds": 248 },
+    { "title": "Röstzwiebeln und scharfer Sriracha Sauce", "seconds": 320 }
+  ]
+}
+

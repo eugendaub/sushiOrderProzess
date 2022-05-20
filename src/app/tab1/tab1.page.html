@@ -1,0 +1,31 @@
+
+<ion-content>
+
+  <ion-row class="ion-no-padding" *ngFor="let entry of data; let isFirst = first;">
+    <ion-col size="9">
+      <h2 class="select-header">{{entry.title}}</h2>
+    </ion-col>
+
+
+    <div >
+
+      <ion-row class="ion-no-padding" *ngFor="let order of entry.albums" >
+        <ion-col size="2" class="ion-no-padding">
+          <img [src]="'/assets/images/albums/'+dasherize(order.image)+'.jpg'">
+        </ion-col>
+        <ion-col size="8" class="ion-align-self-center">
+          <b>{{ order.title }}</b><br>
+          <span>{{ order.title }}</span>
+        </ion-col>
+        <button (click)="placeAnOrder(order)"  >
+        <ion-col size="2" class="ion-text-center ion-no-padding ion-align-self-center">
+          <ion-icon name="add" color="" size="large"></ion-icon>
+        </ion-col>
+        </button>
+      </ion-row>
+
+    </div>
+
+
+  </ion-row>
+</ion-content>
