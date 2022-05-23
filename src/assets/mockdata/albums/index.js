@@ -11,7 +11,6 @@ import soulfoodBoxVegan from './soulfoodBoxVegan.json';
 import FuyoSpicyYuna from './fuyoSpicyYuna.json';
 import CaliforniaSpicySalmonCrunch from './californiaSpicySalmonCrunch.json';
 import nigiriMenue from './nigirimenu.json';
-import maguro from './maguro.json';
 import lachsavokadoNigiri from './la-nig.json';
 import tako from './tako.json';
 
@@ -30,7 +29,6 @@ export default {
   'Fuyo Spicy Yuna': FuyoSpicyYuna,
   'California Spicy Salmon Crunch': CaliforniaSpicySalmonCrunch,
   'Nigiri Menue' : nigiriMenue,
-  'Maguro' : maguro,
   'Lachsavokado Nigiri' : lachsavokadoNigiri,
   'Tako' : tako
 };

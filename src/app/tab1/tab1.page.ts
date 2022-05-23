@@ -4,6 +4,8 @@ import nigiriSushi from '../../assets/mockdata/nigiriSushi.json';
 import jumpBackIn from '../../assets/mockdata/jumpBackIn.json';
 import {Router} from '@angular/router';
 import {ChatService} from '../services/chat.service';
+import {AuthService} from '../services/auth.service';
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-tab1',
@@ -12,6 +14,8 @@ import {ChatService} from '../services/chat.service';
 })
 export class Tab1Page {
   msg = '';
+  dasherizeImg ='';
+  sushiImageLink = '';
 
   data =[
     {
@@ -35,26 +39,37 @@ export class Tab1Page {
     freeMode: true
   };
 
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService , private authService: AuthService, private dataService: DataService) {}
 
   // Helper function for image names
   // eslint-disable-next-line id-blacklist
   dasherize(string) {
     // eslint-disable-next-line id-blacklist,prefer-arrow/prefer-arrow-functions
-    return string.replace(/[A-Z]/g, function(char, index) {
+    return this.dasherizeImg = string.replace(/[A-Z]/g, function(char, index) {
       return (index !== 0 ? '-' : '') + char.toLowerCase();
     });
   };
   placeAnOrder(order){
+    const logInUserEmail = this.authService.getUserEmail();
+    const logInUserId= this.authService.getUserId();
     const titleEscaped = encodeURIComponent(order.title);
     console.log('titleEscape ', titleEscaped);
+    console.log('image: ', this.dasherizeImg);
+    const img= this.dasherize(order.image);
+    console.log('funktion IMF:', img);
+    this.sushiImageLink = order.image;
+
+    console.log('image Link: ', this.sushiImageLink);
+    this.dataService.addOrderToUser(logInUserId, logInUserEmail,  order.title,  order.title , img);
   }
-/*
-  sendOrder(){
-    this.chatService.addMessage(this.chatId, this.msg).then(_=>{
-      this.msg = '';
-      this.content.scrollToBottom(300);
-    });
-  }*/
+
+  logout(){
+    this.authService.logout();
+  }
+  deleteUser(){
+    const userId = this.authService.getUserId();
+    this.authService.deleteUser();
+    this.dataService.deleteUserDocument(userId);
+  }
 
 }
