@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import suggestedSushi from '../../assets/mockdata/suggestedSushi.json';
 import nigiriSushi from '../../assets/mockdata/nigiriSushi.json';
 import jumpBackIn from '../../assets/mockdata/jumpBackIn.json';
-import {Router} from '@angular/router';
-import {ChatService} from '../services/chat.service';
 import {AuthService} from '../services/auth.service';
 import {DataService} from '../services/data.service';
 
@@ -39,7 +37,7 @@ export class Tab1Page {
     freeMode: true
   };
 
-  constructor(private chatService: ChatService , private authService: AuthService, private dataService: DataService) {}
+  constructor( private authService: AuthService, private dataService: DataService) {}
 
   // Helper function for image names
   // eslint-disable-next-line id-blacklist

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {AutoLoginGuard} from './guards/auto-login.guard';
+
 
 const routes: Routes = [
   {
@@ -15,7 +15,6 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login-table/login-table.module').then( m => m.LoginTablePageModule),
-    canActivate: [AutoLoginGuard]
   }
 ];
 @NgModule({
